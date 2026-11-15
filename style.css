@@ -1,0 +1,388 @@
+* {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #121212;
+            color: #e8e8e8;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #1e1e1e;
+            padding: 24px 28px;
+            border-radius: 20px;
+            border: 1px solid #2c2c2c;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7);
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            margin-top: 0.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+
+        .flex-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 12px;
+            margin: 12px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(13, 1fr);
+            gap: 6px;
+            margin: 18px 0 16px;
+        }
+
+        .rank-box {
+            background: #1a1a2a;
+            text-align: center;
+            padding: 8px 2px;
+            border-radius: 8px;
+            border: 1px solid #3a3a4a;
+            font-weight: 600;
+            transition: 0.2s;
+            position: relative;
+        }
+
+        .rank-box .rank-symbol {
+            font-size: 1.1rem;
+            color: #e8e8f0;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .rank-box .rank-count {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #6ab0e6;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .rank-box .rank-count.zero {
+            color: #5a3a3a;
+        }
+
+        .rank-box .rank-count.low {
+            color: #e6b86a;
+        }
+
+        .rank-box .suit-indicator {
+            font-size: 0.7rem;
+            color: #6a7a8a;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .player-card {
+            background: #252525;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border-left: 4px solid #3a6ea5;
+        }
+
+        .player-card.you {
+            border-left-color: #4caf84;
+            background: #1a2a2a;
+        }
+
+        .player-name {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .player-badge {
+            font-size: 0.75rem;
+            padding: 2px 10px;
+            border-radius: 30px;
+            background: #4caf84;
+            color: #121212;
+            font-weight: 600;
+        }
+
+        input,
+        select,
+        button {
+            padding: 8px 14px;
+            border-radius: 30px;
+            border: 1px solid #3a3a3a;
+            background: #2b2b2b;
+            color: #f0f0f0;
+            font-size: 0.95rem;
+            transition: 0.15s;
+        }
+
+        button {
+            background: #2f3b4a;
+            border-color: #4b5a6e;
+            cursor: pointer;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        button:hover {
+            background: #3d4b5e;
+            border-color: #6a7f99;
+        }
+
+        .btn-primary {
+            background: #1f4b6e;
+            border-color: #2a6a8f;
+        }
+
+        .btn-primary:hover {
+            background: #2a5f86;
+        }
+
+        .btn-danger {
+            background: #7a2e2e;
+            border-color: #a54242;
+        }
+
+        .btn-danger:hover {
+            background: #9a3a3a;
+        }
+
+        .btn-success {
+            background: #1f6a4a;
+            border-color: #2a8a5e;
+        }
+
+        .btn-success:hover {
+            background: #2a8060;
+        }
+
+        .btn-pass {
+            background: #4a4a5a;
+            border-color: #6a6a8a;
+        }
+
+        .btn-pass:hover {
+            background: #5a5a6a;
+        }
+
+        .action-bar {
+            background: #262626;
+            padding: 18px 16px;
+            border-radius: 16px;
+            margin-top: 20px;
+            border: 1px solid #353535;
+        }
+
+        .action-bar .flex-row {
+            margin: 6px 0;
+        }
+
+        #lastPlayDisplay {
+            background: #1a1a1a;
+            padding: 6px 12px;
+            border-radius: 30px;
+            color: #d0dbe8;
+        }
+
+        .inline-code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #2a2a2a;
+            padding: 2px 8px;
+            border-radius: 30px;
+            color: #b8d8f0;
+        }
+
+        .pile-info {
+            background: #1a1a2a;
+            padding: 6px 16px;
+            border-radius: 40px;
+            border: 1px solid #3a4a5a;
+            display: inline-block;
+        }
+
+        .pending-warning {
+            background: #3a2a1a;
+            border: 1px solid #6a4a2a;
+            padding: 6px 12px;
+            border-radius: 30px;
+            color: #e6b86a;
+            font-size: 0.85rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .btn-clear {
+            background: #3a2a2a;
+            border-color: #5a3a3a;
+        }
+
+        .btn-clear:hover {
+            background: #4a3a3a;
+        }
+
+        .instructions {
+            background: #1a1a2a;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid #2a3a3a;
+            font-size: 0.85rem;
+            color: #aabbcc;
+            margin-top: 8px;
+        }
+
+        .instructions strong {
+            color: #d0e0f0;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .prob-example {
+            background: #1a2a2a;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border-left: 3px solid #4a8a6a;
+            font-size: 0.85rem;
+            margin-top: 6px;
+            color: #aaccee;
+        }
+
+        .hand-editor {
+            background: #1a2a2a;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid #2a4a4a;
+            margin: 8px 0;
+        }
+
+        .hand-editor .label {
+            color: #88bbaa;
+            font-size: 0.85rem;
+            margin-right: 10px;
+        }
+
+        .hand-editor .rank-input {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #252525;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid #3a3a4a;
+        }
+
+        .hand-editor .rank-input span {
+            font-weight: 600;
+            min-width: 20px;
+        }
+
+        .hand-editor .rank-input input {
+            width: 40px;
+            padding: 4px 6px;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .prob-bar-small {
+            width: 80px;
+            height: 8px;
+            background: #2f2f2f;
+            border-radius: 20px;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .prob-bar-small .fill {
+            height: 100%;
+            background: #4caf84;
+            transition: width 0.3s ease;
+            border-radius: 20px;
+        }
+
+        .opponent-prob {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .you-tag {
+            color: #4caf84;
+            font-weight: 600;
+        }
+
+        .rank-legend {
+            display: flex;
+            gap: 12px;
+            font-size: 0.75rem;
+            color: #8899aa;
+            margin-top: 4px;
+        }
+
+        .rank-legend span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            .player-card {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-group button {
+                width: 100%;
+            }
+
+            .hand-editor .rank-input {
+                margin-bottom: 4px;
+            }
+        }

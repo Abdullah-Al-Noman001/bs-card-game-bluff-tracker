@@ -2,6 +2,15 @@
 
 A browser-based companion for the BS (Bullshit) card game. Track players' hands, cards in the pile, and played ranks while estimating the chance that an opponent's claim is a bluff.
 
+## Tech stack
+
+- HTML for the page structure (`index.html`).
+- CSS for the appearance and responsive layout (`style.css`).
+- Vanilla JavaScript for game state, interactions, and bluff probability calculations (`script.js`).
+- Browser `localStorage` for saving the current game on the device.
+
+There is no framework, build step, server, or external dependency.
+
 ## Features
 
 - Track a game with 2–10 players.
@@ -11,13 +20,9 @@ A browser-based companion for the BS (Bullshit) card game. Track players' hands,
 - Resolve a challenge as a bluff, truthful play, or no challenge.
 - Keep the current game saved in this browser using `localStorage`.
 
-## Play online
-
-This is a static website and can be hosted with GitHub Pages. After enabling Pages for the repository, add the published site URL here.
-
 ## Run locally
 
-No build tools or dependencies are needed. Clone or download the repository, then open `index.html` in a modern browser. You can also use VS Code's Live Server extension if you prefer to serve it locally.
+Clone or download the repository, then open `index.html` in a modern browser. You can also use VS Code's Live Server extension. Keep `index.html`, `style.css`, and `script.js` in the same folder so the page can load its stylesheet and script.
 
 ## How to use
 
@@ -28,19 +33,23 @@ No build tools or dependencies are needed. Clone or download the repository, the
 
 Keep the player card counts and your hand accurate as the game progresses. The estimate depends on the information entered, so it can be wrong if the game state is logged incorrectly or if players' hands are not randomly distributed.
 
-## Data and privacy
+## How browser storage works
 
-The game state is stored in the browser's local storage on the device where you play. It is not synced between devices or players, and this project has no server or account system. Clearing the browser's site data will remove the saved game.
+The app saves the game as JSON in your browser's `localStorage`. The `bsState` entry stores the players' remaining card counts, cards remaining by rank, the pile contents, your known hand, and any pending play. The `yourPlayerIndex` entry stores which player you selected as yourself.
 
-## Deploy with GitHub Pages
+The app reads these entries when it starts and saves the updated state as you use it, so refreshing or reopening the page in the same browser profile on the same device usually restores the game. This data stays in that browser profile: it is not uploaded, synced to other devices, or shared with other players. Clearing the browser's site data removes it. Use **New Game** to start a fresh game; it replaces the saved game state.
+
+## Play online with GitHub Pages
+
+This is a static website and can be hosted with GitHub Pages:
 
 1. Push this repository to GitHub.
 2. Open the repository's **Settings → Pages**.
 3. Under **Build and deployment**, select **Deploy from a branch**.
 4. Select the `main` branch and the `/ (root)` folder, then save.
-5. When GitHub Pages finishes publishing, copy the site URL into the **Play online** section above.
+5. When GitHub Pages finishes publishing, copy the site URL into this section.
 
-Because the app is a single HTML file, no build command or framework setup is required.
+No build command is needed.
 
 ## Repository details
 
